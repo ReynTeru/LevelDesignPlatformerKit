@@ -1,0 +1,753 @@
+[gd_scene load_steps=32 format=3 uid="uid://b10s8r6moyncd"]
+
+[ext_resource type="Environment" uid="uid://bqnqgflivjvue" path="res://scenes/main-environment.tres" id="1_65iw2"]
+[ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="2_0qa3j"]
+[ext_resource type="Script" path="res://scripts/view.gd" id="3_wuqq1"]
+[ext_resource type="PackedScene" uid="uid://fqfc0dtl2xlc" path="res://models/core_models/platform-grass-large-round.glb" id="4_mpdhh"]
+[ext_resource type="PackedScene" uid="uid://dpy85ehefslw" path="res://models/props/hedge.glb" id="5_oumc2"]
+[ext_resource type="PackedScene" uid="uid://dfpisimsgf5ce" path="res://objects/coin.tscn" id="6_5wi1t"]
+[ext_resource type="PackedScene" uid="uid://v7114fdp2q8g" path="res://models/props/block-grass-low-hexagon.glb" id="7_jia61"]
+[ext_resource type="PackedScene" uid="uid://mh0mg6tilwnj" path="res://models/props/crate-item.glb" id="8_vn8xo"]
+[ext_resource type="PackedScene" uid="uid://bpharv43ulngb" path="res://objects/platform_moving.tscn" id="10_adcrt"]
+[ext_resource type="PackedScene" uid="uid://bs65o07otxbmm" path="res://objects/moving_object_path_3d.tscn" id="11_midg8"]
+[ext_resource type="PackedScene" uid="uid://dhxok27jxvik8" path="res://objects/flag.tscn" id="12_n31ql"]
+[ext_resource type="PackedScene" uid="uid://dwvhgrcyestak" path="res://objects/trap_spikes.tscn" id="13_nunyd"]
+[ext_resource type="PackedScene" uid="uid://cxea8lmw7cy1l" path="res://objects/player_kill_volume.tscn" id="14_hxq7k"]
+[ext_resource type="PackedScene" uid="uid://cyvet7kb6y80r" path="res://objects/checkpoint.tscn" id="15_ibvl5"]
+[ext_resource type="PackedScene" uid="uid://c8up71en5djgm" path="res://objects/platform_falling.tscn" id="16_k1x88"]
+[ext_resource type="PackedScene" uid="uid://dy017k58p20sk" path="res://objects/cloud.tscn" id="17_x2a5o"]
+[ext_resource type="Script" path="res://scripts/hud.gd" id="18_wwdhc"]
+[ext_resource type="Texture2D" uid="uid://cd7oyc56ehkx1" path="res://sprites/coin.png" id="19_rrkej"]
+[ext_resource type="LabelSettings" uid="uid://daohhjonjrdx8" path="res://themes/label_settings.tres" id="20_exnt7"]
+[ext_resource type="FontFile" uid="uid://d0cxd77jybrcn" path="res://fonts/lilita_one_regular.ttf" id="21_d05ld"]
+[ext_resource type="Theme" uid="uid://d3avl0mr4r87l" path="res://themes/default_theme.tres" id="22_dfv8h"]
+[ext_resource type="Texture2D" uid="uid://dm50aa4qogm65" path="res://sprites/button_rectangle_depth_gloss.png" id="23_34oy3"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_u8ojw"]
+auto_exposure_scale = 0.75
+dof_blur_far_distance = 0.01
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_nkn1g"]
+height = 0.516802
+radius = 2.45583
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lvqxl"]
+size = Vector3(1, 0.446808, 0.304504)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_edua6"]
+size = Vector3(0.496841, 0.515341, 0.501648)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w6oqa"]
+size = Vector3(1, 0.586548, 1.11621)
+
+[sub_resource type="Curve3D" id="Curve3D_5n82a"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -25.545, 2.4, -1.4, 0, 0, 0, 0, 0, 0, -19, 2.4, -1.4),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_ri8jt"]
+font = ExtResource("21_d05ld")
+font_size = 128
+shadow_color = Color(0, 0, 0, 0.376471)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_x4d2s"]
+font = ExtResource("21_d05ld")
+font_size = 32
+shadow_color = Color(0, 0, 0, 0.376471)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_v6r7m"]
+font = ExtResource("21_d05ld")
+font_size = 42
+shadow_color = Color(0, 0, 0, 0.376471)
+shadow_offset = Vector2(2, 2)
+
+[node name="Main" type="Node3D"]
+
+[node name="Environment" type="WorldEnvironment" parent="."]
+unique_name_in_owner = true
+environment = ExtResource("1_65iw2")
+camera_attributes = SubResource("CameraAttributesPractical_u8ojw")
+
+[node name="Player" parent="." node_paths=PackedStringArray("view") instance=ExtResource("2_0qa3j")]
+transform = Transform3D(-0.997283, 0, 0.0736734, -0.000678916, 0.999958, -0.00919017, -0.0736703, -0.00921521, -0.99724, 33.4312, 23.6127, 4.13688)
+collision_layer = 2
+collision_mask = 36621
+view = NodePath("../View")
+
+[node name="Offset" type="MeshInstance3D" parent="Player"]
+transform = Transform3D(0.5, -2.91038e-11, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1, 3)
+
+[node name="View" type="Node3D" parent="." node_paths=PackedStringArray("target") groups=["View"]]
+process_mode = 3
+transform = Transform3D(0.918274, 0.167334, -0.358849, 0.00364873, 0.902693, 0.430269, 0.39593, -0.396414, 0.828308, 8.74352, 14.4101, 36.7657)
+script = ExtResource("3_wuqq1")
+target = NodePath("../Player/Offset")
+
+[node name="Camera" type="Camera3D" parent="View"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
+current = true
+fov = 40.0
+near = 0.043
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="Trunk" parent="World" instance=ExtResource("4_mpdhh")]
+transform = Transform3D(1.31134e-07, -6.60024e-13, 3, -4.52987e-07, -100, 1.01644e-21, 3, -1.50996e-05, -1.31134e-07, 19.8953, 47.9865, -0.205276)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Trunk"]
+transform = Transform3D(1, -4.54747e-13, 0, 0, 1, -1.32349e-23, 0, -2.71051e-20, 1, 0, 0, 0)
+collision_layer = 32768
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Trunk/StaticBody3D"]
+transform = Transform3D(1, -1.36424e-12, 0, 0, 1, 0, 0, -2.71051e-20, 1, 1.20699e-06, 0.241507, 0)
+shape = SubResource("CylinderShape3D_nkn1g")
+
+[node name="Branch" parent="World" instance=ExtResource("5_oumc2")]
+transform = Transform3D(10, 0, 0, 0, 4, 0, 0, 0, 15, 8.20352, 9.17788, -5.18491)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Branch"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Branch/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.195145, 0.349697)
+shape = SubResource("BoxShape3D_lvqxl")
+
+[node name="Branch2" parent="World" instance=ExtResource("5_oumc2")]
+transform = Transform3D(-0.0411717, 0, 6.99988, 0, 3, 0, -6.99988, 0, -0.0411717, 17.4685, 13.3879, 10.3732)
+
+[node name="hedge" parent="World/Branch2" index="0"]
+metadata/_edit_lock_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Branch2"]
+collision_mask = 2
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Branch2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.195145, 0.349697)
+shape = SubResource("BoxShape3D_lvqxl")
+metadata/_edit_lock_ = true
+
+[node name="Branch3" parent="World" instance=ExtResource("5_oumc2")]
+transform = Transform3D(9.84823, 0, -2.60343, 0, 4, 0, 1.73562, 0, 14.7723, 32.27, 19.5259, -2.80968)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Branch3"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Branch3/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.195145, 0.349697)
+shape = SubResource("BoxShape3D_lvqxl")
+
+[node name="Branch4" parent="World" instance=ExtResource("5_oumc2")]
+transform = Transform3D(-2.24313, 0, 4.96777, 0, 2, 0, -3.31185, 0, -3.3647, 24.0347, 18.86, 8.24226)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Branch4"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Branch4/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.195145, 0.349697)
+shape = SubResource("BoxShape3D_lvqxl")
+
+[node name="Branch5" parent="World" instance=ExtResource("5_oumc2")]
+transform = Transform3D(1.98889, 0, 14.7003, 0, 4, 0, -9.80022, 0, 2.98334, 16.871, 23.3414, -14.1527)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Branch5"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Branch5/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.195145, 0.349697)
+shape = SubResource("BoxShape3D_lvqxl")
+
+[node name="Branch6" parent="World" instance=ExtResource("5_oumc2")]
+transform = Transform3D(-4.85856, 0, 5.03928, 0, 3, 0, -5.03928, 0, -4.85856, 8.99399, 14.5661, -5.80226)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Branch6"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Branch6/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.195145, 0.349697)
+shape = SubResource("BoxShape3D_lvqxl")
+
+[node name="Branch7" parent="World" instance=ExtResource("5_oumc2")]
+transform = Transform3D(-9.87283, 0, 2.38452, 0, 4, 0, -1.58968, 0, -14.8092, 7.25342, 26.478, 3.22983)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Branch7"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Branch7/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.195145, 0.349697)
+shape = SubResource("BoxShape3D_lvqxl")
+
+[node name="Branch10" parent="World" instance=ExtResource("5_oumc2")]
+transform = Transform3D(-9.88604, 0, -2.25804, 0, 4, 0, 1.50536, 0, -14.8291, 9.23649, 35.8991, 7.64888)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Branch10"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Branch10/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.195145, 0.349697)
+shape = SubResource("BoxShape3D_lvqxl")
+
+[node name="Branch11" parent="World" instance=ExtResource("5_oumc2")]
+transform = Transform3D(-4.74048, 0, 1.58992, 0, 3, 0, -1.58992, 0, -4.74048, 10.2751, 33.2181, -2.69939)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Branch11"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Branch11/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.195145, 0.349697)
+shape = SubResource("BoxShape3D_lvqxl")
+
+[node name="Animal2" parent="World" instance=ExtResource("8_vn8xo")]
+transform = Transform3D(2.98536, 0, -0.296031, 0, 3, 0, 0.296031, 0, 2.98536, 7.57355, 28.1132, -1.98492)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Animal2"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Animal2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0126724, 0.265796, -0.00471389)
+shape = SubResource("BoxShape3D_edua6")
+
+[node name="Branch8" parent="World" instance=ExtResource("5_oumc2")]
+transform = Transform3D(5.31554, 0, 4.55468, 0, 3, 0, -4.55468, 0, 5.31554, 24.6306, 17.0642, -10.1531)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Branch8"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Branch8/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.195145, 0.349697)
+shape = SubResource("BoxShape3D_lvqxl")
+
+[node name="Branch9" parent="World" instance=ExtResource("5_oumc2")]
+transform = Transform3D(-6.0471, 0, -4.77867, 0, 2, 0, 7.96445, 0, -3.62826, 14.6712, 32.0597, 11.0968)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Branch9"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Branch9/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.195145, 0.349697)
+shape = SubResource("BoxShape3D_lvqxl")
+
+[node name="coin2" parent="World" instance=ExtResource("6_5wi1t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.1077, 19.6023, 8.05868)
+
+[node name="Leaf" parent="World" instance=ExtResource("7_jia61")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 12.5009, 11.4222, 4.29141)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Leaf/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
+shape = SubResource("BoxShape3D_w6oqa")
+
+[node name="Leaf2" parent="World" instance=ExtResource("7_jia61")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 14.4061, 11.9479, 6.40221)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf2"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Leaf2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
+shape = SubResource("BoxShape3D_w6oqa")
+
+[node name="Leaf3" parent="World" instance=ExtResource("7_jia61")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 16.7132, 12.4636, 8.07888)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf3"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Leaf3/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
+shape = SubResource("BoxShape3D_w6oqa")
+
+[node name="Leaf26" parent="World" instance=ExtResource("7_jia61")]
+transform = Transform3D(1.87557, 0, -0.694428, 0, 2, 0, 0.694428, 0, 1.87557, 9.86542, 28.6719, 3.7057)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf26"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Leaf26/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
+shape = SubResource("BoxShape3D_w6oqa")
+
+[node name="Leaf27" parent="World" instance=ExtResource("7_jia61")]
+transform = Transform3D(1.87557, 0, -0.694428, 0, 2, 0, 0.694428, 0, 1.87557, 10.9192, 29.1976, 6.34669)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf27"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Leaf27/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
+shape = SubResource("BoxShape3D_w6oqa")
+
+[node name="Leaf28" parent="World" instance=ExtResource("7_jia61")]
+transform = Transform3D(1.87557, 0, -0.694428, 0, 2, 0, 0.694428, 0, 1.87557, 12.5006, 29.7133, 8.72011)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf28"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Leaf28/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
+shape = SubResource("BoxShape3D_w6oqa")
+
+[node name="Leaf4" parent="World" instance=ExtResource("7_jia61")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 18.0941, 13.3534, 15.7085)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf4"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Leaf4/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
+shape = SubResource("BoxShape3D_w6oqa")
+
+[node name="Leaf5" parent="World" instance=ExtResource("7_jia61")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 20.9828, 14.4994, 17.2958)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf5"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Leaf5/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
+shape = SubResource("BoxShape3D_w6oqa")
+
+[node name="Leaf6" parent="World" instance=ExtResource("7_jia61")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 18.9433, 15.2035, 19.3981)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf6"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Leaf6/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
+shape = SubResource("BoxShape3D_w6oqa")
+
+[node name="Leaf7" parent="World" instance=ExtResource("7_jia61")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 21.9546, 15.7545, 19.3981)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf7"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Leaf7/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
+shape = SubResource("BoxShape3D_w6oqa")
+
+[node name="Leaf8" parent="World" instance=ExtResource("7_jia61")]
+transform = Transform3D(0.273921, 0, 1.98115, 0, 2, 0, -1.98115, 0, 0.273921, 22.7651, 14.1554, 8.57366)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf8"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Leaf8/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
+shape = SubResource("BoxShape3D_w6oqa")
+
+[node name="Leaf9" parent="World" instance=ExtResource("7_jia61")]
+transform = Transform3D(0.273921, 0, 1.98115, 0, 2, 0, -1.98115, 0, 0.273921, 25.1169, 14.6811, 6.97551)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf9"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Leaf9/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
+shape = SubResource("BoxShape3D_w6oqa")
+
+[node name="Leaf10" parent="World" instance=ExtResource("7_jia61")]
+transform = Transform3D(-1.95964, 0, 0.399762, 0, 2, 0, -0.399762, 0, -1.95964, 28.6398, 20.5229, -2.28114)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf10"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Leaf10/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
+shape = SubResource("BoxShape3D_w6oqa")
+
+[node name="Leaf11" parent="World" instance=ExtResource("7_jia61")]
+transform = Transform3D(-1.95964, 0, 0.399762, 0, 2, 0, -0.399762, 0, -1.95964, 26.9613, 21.2875, -5.1459)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf11"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Leaf11/StaticBody3D"]
+transform = Transform3D(0.999999, 0.00104317, 1.19209e-07, -0.00104317, 0.999999, 0.000212804, 1.19209e-07, -0.000212804, 1, -9.53674e-07, 0.263, -0.058105)
+shape = SubResource("BoxShape3D_w6oqa")
+
+[node name="Leaf12" parent="World" instance=ExtResource("7_jia61")]
+transform = Transform3D(-1.95964, 0, 0.399762, 0, 2, 0, -0.399762, 0, -1.95964, 24.8853, 21.9476, -7.61189)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf12"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Leaf12/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
+shape = SubResource("BoxShape3D_w6oqa")
+
+[node name="Leaf13" parent="World" instance=ExtResource("7_jia61")]
+transform = Transform3D(-0.607035, 0, -1.90565, 0, 2, 0, 1.90565, 0, -0.607035, 17.2863, 24.6086, -8.90559)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf13"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Leaf13/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
+shape = SubResource("BoxShape3D_w6oqa")
+
+[node name="Leaf14" parent="World" instance=ExtResource("7_jia61")]
+transform = Transform3D(-0.607035, 0, -1.90565, 0, 2, 0, 1.90565, 0, -0.607035, 14.2584, 25.3732, -7.54309)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf14"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Leaf14/StaticBody3D"]
+transform = Transform3D(0.999999, 0.00104317, 1.19209e-07, -0.00104317, 0.999999, 0.000212804, 1.19209e-07, -0.000212804, 1, -9.53674e-07, 0.263, -0.058105)
+shape = SubResource("BoxShape3D_w6oqa")
+
+[node name="Leaf15" parent="World" instance=ExtResource("7_jia61")]
+transform = Transform3D(-0.607035, 0, -1.90565, 0, 2, 0, 1.90565, 0, -0.607035, 11.5846, 26.0333, -5.74266)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf15"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Leaf15/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
+shape = SubResource("BoxShape3D_w6oqa")
+
+[node name="Leaf16" parent="World" instance=ExtResource("7_jia61")]
+transform = Transform3D(-1.95964, 0, 0.399762, 0, 2, 0, -0.399762, 0, -1.95964, 21.6785, 16.4781, -9.03937)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf16"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Leaf16/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
+shape = SubResource("BoxShape3D_w6oqa")
+
+[node name="Leaf17" parent="World" instance=ExtResource("7_jia61")]
+transform = Transform3D(-1.95964, 0, 0.399762, 0, 2, 0, -0.399762, 0, -1.95964, 18.5215, 15.7378, -9.03937)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf17"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Leaf17/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
+shape = SubResource("BoxShape3D_w6oqa")
+
+[node name="Leaf18" parent="World" instance=ExtResource("7_jia61")]
+transform = Transform3D(-1.95964, 0, 0.399762, 0, 2, 0, -0.399762, 0, -1.95964, 15.4214, 15.2151, -7.63953)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf18"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Leaf18/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
+shape = SubResource("BoxShape3D_w6oqa")
+
+[node name="Leaf23" parent="World" instance=ExtResource("7_jia61")]
+transform = Transform3D(-0.391652, 0, -1.96127, 0, 2, 0, 1.96127, 0, -0.391652, 11.3225, 32.4158, -1.57947)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf23"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Leaf23/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
+shape = SubResource("BoxShape3D_w6oqa")
+
+[node name="Leaf24" parent="World" instance=ExtResource("7_jia61")]
+transform = Transform3D(-0.391652, 0, -1.96127, 0, 2, 0, 1.96127, 0, -0.391652, 11.3356, 31.6756, 1.57754)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf24"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Leaf24/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
+shape = SubResource("BoxShape3D_w6oqa")
+
+[node name="Leaf25" parent="World" instance=ExtResource("7_jia61")]
+transform = Transform3D(-0.391652, 0, -1.96127, 0, 2, 0, 1.96127, 0, -0.391652, 12.7483, 31.1528, 4.67182)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf25"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Leaf25/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
+shape = SubResource("BoxShape3D_w6oqa")
+
+[node name="Leaf19" parent="World" instance=ExtResource("7_jia61")]
+transform = Transform3D(-1.95964, 0, 0.399762, 0, 2, 0, -0.399762, 0, -1.95964, 30.962, 18.0806, -7.68929)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf19"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Leaf19/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
+shape = SubResource("BoxShape3D_w6oqa")
+
+[node name="Leaf20" parent="World" instance=ExtResource("7_jia61")]
+transform = Transform3D(-1.95964, 0, 0.399762, 0, 2, 0, -0.399762, 0, -1.95964, 32.7629, 18.9076, -5.08507)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf20"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Leaf20/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
+shape = SubResource("BoxShape3D_w6oqa")
+
+[node name="Leaf21" parent="World" instance=ExtResource("7_jia61")]
+transform = Transform3D(-1.95964, 0, 0.399762, 0, 2, 0, -0.399762, 0, -1.95964, 34.971, 19.7272, -3.01765)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf21"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Leaf21/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
+shape = SubResource("BoxShape3D_w6oqa")
+
+[node name="Leaf22" parent="World" instance=ExtResource("7_jia61")]
+transform = Transform3D(-1.95964, 0, 0.399762, 0, 2, 0, -0.399762, 0, -1.95964, 36.9124, 20.5898, -1.03789)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf22"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Leaf22/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
+shape = SubResource("BoxShape3D_w6oqa")
+
+[node name="Animal" parent="World" instance=ExtResource("8_vn8xo")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 27.0272, 14.7839, 4.68868)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Animal"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Animal/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0126724, 0.265796, -0.00471389)
+shape = SubResource("BoxShape3D_edua6")
+
+[node name="coin" parent="World" instance=ExtResource("6_5wi1t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.8269, 17.028, 19.6225)
+
+[node name="coin3" parent="World" instance=ExtResource("6_5wi1t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.88863, 16.0138, -9.41025)
+
+[node name="coin5" parent="World" instance=ExtResource("6_5wi1t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.146, 33.2191, 12.7311)
+
+[node name="coin4" parent="World" instance=ExtResource("6_5wi1t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.1636, 25.6612, -16.4108)
+
+[node name="platform-moving" parent="World" instance=ExtResource("10_adcrt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.738, 0, 0)
+
+[node name="moving_object_path" parent="World" node_paths=PackedStringArray("object_to_move") instance=ExtResource("11_midg8")]
+curve = SubResource("Curve3D_5n82a")
+object_to_move = NodePath("../platform-moving")
+is_on_from_start = false
+ping_pong = true
+
+[node name="flag" parent="World" instance=ExtResource("12_n31ql")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -9.40196, 2.7273, -8.92648)
+
+[node name="trap-spikes" parent="World" instance=ExtResource("13_nunyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7989, 2.71517, -4.91552)
+
+[node name="player_kill_volume" parent="World" instance=ExtResource("14_hxq7k")]
+
+[node name="checkpoint" parent="World" instance=ExtResource("15_ibvl5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7315, 2.80471, -1.40497)
+
+[node name="platform-falling" parent="World" instance=ExtResource("16_k1x88")]
+transform = Transform3D(0.989985, 0, -0.141178, 0, 1, 0, 0.141178, 0, 0.989985, -9.67817, 1.89327, -0.633746)
+
+[node name="cube14" parent="World" instance=ExtResource("17_x2a5o")]
+transform = Transform3D(1.56209, -1.37982, 1.71508, 1.97375, 1.80907, -0.342241, -0.974547, 1.4522, 2.05595, -15.866, 2.03819, 7.83702)
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.422618, -0.694272, 0.582563, 0, 0.642788, 0.766044, -0.906308, 0.323744, -0.271654, 0, 0, 0)
+shadow_enabled = true
+shadow_opacity = 0.75
+
+[node name="HUD" type="CanvasLayer" parent="." groups=["HUD"]]
+process_mode = 3
+script = ExtResource("18_wwdhc")
+
+[node name="Control" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Icon" type="TextureRect" parent="HUD/Control"]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 67.0
+offset_right = 313.0
+offset_bottom = 323.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("19_rrkej")
+
+[node name="x" type="Label" parent="HUD/Control"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 64.0
+offset_right = 144.0
+offset_bottom = 123.0
+text = "×"
+label_settings = ExtResource("20_exnt7")
+
+[node name="Level Complete" type="Label" parent="HUD/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -429.0
+offset_top = 139.0
+offset_right = 429.0
+offset_bottom = 287.0
+grow_horizontal = 2
+text = "Level Complete!"
+label_settings = SubResource("LabelSettings_ri8jt")
+
+[node name="CoinsLabel" type="Label" parent="HUD/Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 144.0
+offset_top = 64.0
+offset_right = 368.0
+offset_bottom = 123.0
+text = "0"
+label_settings = ExtResource("20_exnt7")
+
+[node name="PlayAgainButton" type="Button" parent="HUD/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -196.0
+offset_top = -258.0
+offset_right = 196.0
+offset_bottom = -122.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 0
+theme = ExtResource("22_dfv8h")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("21_d05ld")
+theme_override_font_sizes/font_size = 60
+text = "Play Again?"
+icon = ExtResource("23_34oy3")
+flat = true
+icon_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="HUD/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -48.5
+offset_top = 59.0
+offset_right = 48.5
+offset_bottom = 115.0
+grow_horizontal = 2
+text = "00"
+label_settings = SubResource("LabelSettings_x4d2s")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeNameLabel" type="Label" parent="HUD/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -49.0
+offset_top = 22.0
+offset_right = 49.0
+offset_bottom = 78.0
+grow_horizontal = 2
+text = "TIME"
+label_settings = SubResource("LabelSettings_v6r7m")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="coin_collected" from="Player" to="HUD" method="_on_coin_collected"]
+[connection signal="reached_goal" from="Player" to="HUD" method="_on_player_reached_goal"]
+[connection signal="pressed" from="HUD/Control/PlayAgainButton" to="HUD" method="_on_play_again_button_pressed"]
+
+[editable path="World/Trunk"]
+[editable path="World/Branch"]
+[editable path="World/Branch2"]
+[editable path="World/Branch3"]
+[editable path="World/Branch4"]
+[editable path="World/Branch5"]
+[editable path="World/Branch6"]
+[editable path="World/Branch7"]
+[editable path="World/Branch10"]
+[editable path="World/Branch11"]
+[editable path="World/Branch8"]
+[editable path="World/Branch9"]
+[editable path="World/Leaf"]
+[editable path="World/Leaf2"]
+[editable path="World/Leaf3"]
+[editable path="World/Leaf26"]
+[editable path="World/Leaf27"]
+[editable path="World/Leaf28"]
+[editable path="World/Leaf4"]
+[editable path="World/Leaf5"]
+[editable path="World/Leaf6"]
+[editable path="World/Leaf7"]
+[editable path="World/Leaf8"]
+[editable path="World/Leaf9"]
+[editable path="World/Leaf10"]
+[editable path="World/Leaf11"]
+[editable path="World/Leaf12"]
+[editable path="World/Leaf13"]
+[editable path="World/Leaf14"]
+[editable path="World/Leaf15"]
+[editable path="World/Leaf16"]
+[editable path="World/Leaf17"]
+[editable path="World/Leaf18"]
+[editable path="World/Leaf23"]
+[editable path="World/Leaf24"]
+[editable path="World/Leaf25"]
+[editable path="World/Leaf19"]
+[editable path="World/Leaf20"]
+[editable path="World/Leaf21"]
+[editable path="World/Leaf22"]

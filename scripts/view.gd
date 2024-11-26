@@ -4,8 +4,8 @@ extends Node3D
 @export var target: Node
 
 @export_group("Zoom")
-@export var zoom_minimum = 16
-@export var zoom_maximum = 4
+@export var zoom_minimum = 24
+@export var zoom_maximum = 6
 @export var zoom_speed = 10
 @export var default_zoom = 10
 
@@ -32,7 +32,7 @@ func _physics_process(delta):
 	if look_at_player:
 		# Set position and rotation to targets
 		
-		self.position = self.position.lerp(target.position, delta * 4)
+		self.position = self.position.lerp(target.global_position, delta * 1.5)
 		rotation_degrees = rotation_degrees.lerp(camera_rotation, delta * 6)
 		
 		camera.position = camera.position.lerp(Vector3(0, 0, zoom), 8 * delta)
