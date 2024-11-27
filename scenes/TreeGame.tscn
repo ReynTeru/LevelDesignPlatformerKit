@@ -123,7 +123,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.195145, 0.349697)
 shape = SubResource("BoxShape3D_lvqxl")
 
 [node name="Branch2" parent="World" instance=ExtResource("5_oumc2")]
-transform = Transform3D(-0.0235267, 0, 5.9999, 0, 3, 0, -3.99993, 0, -0.0352901, 16.5602, 13.1642, 9.19591)
+transform = Transform3D(-0.0235267, 0, 5.9999, 0, 3, 0, -3.99993, 0, -0.0352901, 16.5602, 12.5471, 9.19591)
 
 [node name="hedge" parent="World/Branch2" index="0"]
 metadata/_edit_lock_ = true
@@ -307,7 +307,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
 shape = SubResource("BoxShape3D_w6oqa")
 
 [node name="Leaf8" parent="World" instance=ExtResource("7_jia61")]
-transform = Transform3D(0.273921, 0, 1.98115, 0, 2, 0, -1.98115, 0, 0.273921, 23.428, 14.3615, 7.789)
+transform = Transform3D(0.273921, 0, 1.98115, 0, 2, 0, -1.98115, 0, 0.273921, 23.428, 14.1376, 7.789)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf8"]
 collision_layer = 4
@@ -317,19 +317,19 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
 shape = SubResource("BoxShape3D_w6oqa")
 
-[node name="Leaf29" parent="World" instance=ExtResource("7_jia61")]
-transform = Transform3D(0.273921, 0, 1.98115, 0, 2, 0, -1.98115, 0, 0.273921, 21.0412, 13.5345, 8.31945)
+[node name="Leaf7" parent="World" instance=ExtResource("7_jia61")]
+transform = Transform3D(0.273921, 0, 1.98115, 0, 2, 0, -1.98115, 0, 0.273921, 21.0412, 13.3106, 8.31945)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf29"]
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf7"]
 collision_layer = 4
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Leaf29/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Leaf7/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
 shape = SubResource("BoxShape3D_w6oqa")
 
 [node name="Leaf9" parent="World" instance=ExtResource("7_jia61")]
-transform = Transform3D(0.273921, 0, 1.98115, 0, 2, 0, -1.98115, 0, 0.273921, 25.6968, 15.1211, 6.19396)
+transform = Transform3D(0.273921, 0, 1.98115, 0, 2, 0, -1.98115, 0, 0.273921, 25.6968, 14.8972, 6.19396)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf9"]
 collision_layer = 4
@@ -538,7 +538,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
 shape = SubResource("BoxShape3D_w6oqa")
 
 [node name="Animal" parent="World" instance=ExtResource("8_vn8xo")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 27.4967, 15.3479, 4.14392)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 27.4967, 15.0828, 4.34874)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="World/Animal"]
 collision_mask = 2
@@ -987,7 +987,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.73886, 10.8521, 0.0828703)
 [editable path="World/Leaf5"]
 [editable path="World/Leaf6"]
 [editable path="World/Leaf8"]
-[editable path="World/Leaf29"]
+[editable path="World/Leaf7"]
 [editable path="World/Leaf9"]
 [editable path="World/Leaf10"]
 [editable path="World/Leaf11"]
