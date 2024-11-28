@@ -18,37 +18,46 @@ var previously_floored = false
 
 var jump_single = true
 var jump_double = true
+var current_jump_double = jump_double
 
-var coins = 0
+var coins = [0]
 var latest_checkpoint : Vector3
 
+@onready var groundCast = $FallRaycast
 @onready var particles_trail = $ParticlesTrail
 @onready var sound_footsteps = $SoundFootsteps
 @onready var model = $Character
 @onready var animation = $Character/AnimationPlayer
 
+var isHavingJumpPad = false
 # Functions
 
 func _ready() -> void:
 	latest_checkpoint = global_position
 
 func _physics_process(delta):
-
+	isHavingJumpPad = groundCast.is_colliding() and groundCast.get_collider().has_method("interact")
+	if isHavingJumpPad:
+		groundCast.get_collider().interact(coins, false)
 	# Handle functions
 
 	handle_controls(delta)
 	handle_gravity(delta)
 
 	handle_effects(delta)
-
+	
 	# Movement
-
+	isHavingJumpPad = groundCast.is_colliding() and groundCast.get_collider().has_method("interact")
+	if isHavingJumpPad:
+		groundCast.get_collider().interact(coins, false)
+			
 	var applied_velocity: Vector3
 
 	applied_velocity = velocity.lerp(movement_velocity, delta * 10)
 	applied_velocity.y = -gravity
 
 	velocity = applied_velocity
+	
 	move_and_slide()
 
 	# Rotation
@@ -147,21 +156,39 @@ func jump():
 		jump_double = true;
 	else:
 		jump_double = false;
+	if isHavingJumpPad:
+		groundCast.get_collider().interact(coins, true)
 
 # Collecting coins
 
 func collect_coin():
 
-	coins += 1
+	coins[0] += 1
 
-	coin_collected.emit(coins)
+	coin_collected.emit(coins[0])
 	
 func touched_goal() -> void:
 	reached_goal.emit()
 
 func player_died() -> void:
+	for animal in find_nodes_with_script("res://scripts/animal.gd"):
+		animal.deactivate()
 	global_position = latest_checkpoint
 	
 func reached_checkpoint(checkpoint_pos : Vector3) -> void:
 	latest_checkpoint = checkpoint_pos
-	
+
+func find_nodes_with_script(script_path: String) -> Array:
+	var result = []
+	# Get the root node of the scene
+	var root = get_tree().root
+	# Recursively check each node
+	_find_nodes_with_script_recursive(root, script_path, result)
+	return result
+
+func _find_nodes_with_script_recursive(node: Node, script_path: String, result: Array):
+	if node.get_script() and node.get_script().resource_path == script_path:
+		result.append(node)
+	for child in node.get_children():
+		if child is Node:
+			_find_nodes_with_script_recursive(child, script_path, result)
