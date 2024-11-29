@@ -11,6 +11,7 @@ extends StaticBody3D
 var isActive: bool = false
 
 func interact(coins, shouldAddJumpForce) -> void:
+	Audio.play("res://sounds/Animal_sound1.ogg")
 	if isActive == false:
 		if coins[0] < required_coins:
 			pass
@@ -42,3 +43,4 @@ func deactivate() -> void:
 	print("animal deactivating")
 	if shouldDeactivateOnDeath:
 		isActive = false
+		
