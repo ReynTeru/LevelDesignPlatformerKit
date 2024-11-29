@@ -243,6 +243,36 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.195145, 0.349697)
 shape = SubResource("BoxShape3D_lvqxl")
 
+[node name="Branch18" parent="World" instance=ExtResource("5_oumc2")]
+transform = Transform3D(-0.539219, 0, -6.98982, 0, 2, 0, 9.98545, 0, -0.377452, 20.9733, 35.0013, 12.1424)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Branch18"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Branch18/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.195145, 0.349697)
+shape = SubResource("BoxShape3D_lvqxl")
+
+[node name="Branch22" parent="World" instance=ExtResource("5_oumc2")]
+transform = Transform3D(9.9876, 0, 0.348538, 0, 2, 0, -0.497912, 0, 6.99132, 32.1148, 39.1933, -2.77634)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Branch22"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Branch22/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.195145, 0.349697)
+shape = SubResource("BoxShape3D_lvqxl")
+
+[node name="Branch19" parent="World" instance=ExtResource("5_oumc2")]
+transform = Transform3D(8.08113, 0, -4.12319, 0, 2, 0, 5.89027, 0, 5.65679, 31.7022, 28.9901, 5.08918)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Branch19"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Branch19/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00589156, 0.195145, 0.343563)
+shape = SubResource("BoxShape3D_lvqxl")
+
 [node name="Branch17" parent="World" instance=ExtResource("5_oumc2")]
 transform = Transform3D(-2.65755, 0, -6.60248, 0, 2, 0, 7.54569, 0, -2.32536, 17.8213, 25.1926, 11.3358)
 
@@ -289,6 +319,19 @@ shouldAllowDoubleJump = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0126724, 0.265796, -0.00471389)
 shape = SubResource("BoxShape3D_edua6")
 
+[node name="Animal5" parent="World" instance=ExtResource("8_vn8xo")]
+transform = Transform3D(2.78312, -0.0559957, -1.11853, 0.0668243, 2.99921, 0.0161258, 1.11794, -0.039875, 2.78364, 16.3969, 34.2651, 7.96152)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Animal5"]
+collision_mask = 2
+script = ExtResource("10_y5ct2")
+required_coins = 2
+shouldAllowDoubleJump = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Animal5/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0126724, 0.265796, -0.00471389)
+shape = SubResource("BoxShape3D_edua6")
+
 [node name="Animal4" parent="World" instance=ExtResource("8_vn8xo")]
 transform = Transform3D(2.00508, -0.0326776, -2.23127, 0.0668243, 2.99921, 0.0161258, 2.23051, -0.0604789, 2.00529, 14.2563, 19.1336, 6.71828)
 
@@ -311,6 +354,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00708723, 0, 0.159281)
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Branch8/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.118415, 0.0198846, 0.181775)
+shape = SubResource("BoxShape3D_lvqxl")
+
+[node name="Branch9" parent="World" instance=ExtResource("5_oumc2")]
+transform = Transform3D(5.44471, 0, 4.39945, 0, 3, 0, -4.39945, 0, 5.44471, 29.2843, 31.8471, -7.81338)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Branch9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00708723, 0, 0.159281)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Branch9/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.118415, 0.0198846, 0.181775)
 shape = SubResource("BoxShape3D_lvqxl")
 
@@ -402,19 +456,8 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
 shape = SubResource("BoxShape3D_w6oqa")
 
-[node name="Leaf36" parent="World" instance=ExtResource("7_jia61")]
-transform = Transform3D(1.88713, 0, -0.662379, 0, 2, 0, 0.662379, 0, 1.88713, 16.8668, 25.5289, 13.6301)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf36"]
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Leaf36/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
-shape = SubResource("BoxShape3D_w6oqa")
-
 [node name="Leaf37" parent="World" instance=ExtResource("7_jia61")]
-transform = Transform3D(1.88713, 0, -0.662379, 0, 2, 0, 0.662379, 0, 1.88713, 19.3137, 26.1331, 13.8503)
+transform = Transform3D(1.88713, 0, -0.662379, 0, 2, 0, 0.662379, 0, 1.88713, 18.5097, 25.8164, 9.38696)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf37"]
 collision_layer = 4
@@ -425,7 +468,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
 shape = SubResource("BoxShape3D_w6oqa")
 
 [node name="Leaf38" parent="World" instance=ExtResource("7_jia61")]
-transform = Transform3D(1.88713, 0, -0.662379, 0, 2, 0, 0.662379, 0, 1.88713, 21.3883, 26.5662, 12.7355)
+transform = Transform3D(1.25663, 0, -1.55592, 0, 2, 0, 1.55592, 0, 1.25663, 21.2431, 26.4944, 9.38696)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf38"]
 collision_layer = 4
@@ -436,7 +479,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
 shape = SubResource("BoxShape3D_w6oqa")
 
 [node name="Leaf39" parent="World" instance=ExtResource("7_jia61")]
-transform = Transform3D(1.88713, 0, -0.662379, 0, 2, 0, 0.662379, 0, 1.88713, 22.7322, 27.046, 10.8117)
+transform = Transform3D(1.25663, 0, -1.55592, 0, 2, 0, 1.55592, 0, 1.25663, 23.4315, 27.2254, 8.22417)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf39"]
 collision_layer = 4
@@ -446,19 +489,8 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
 shape = SubResource("BoxShape3D_w6oqa")
 
-[node name="Leaf40" parent="World" instance=ExtResource("7_jia61")]
-transform = Transform3D(1.88713, 0, -0.662379, 0, 2, 0, 0.662379, 0, 1.88713, 22.2389, 27.7708, 8.55996)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf40"]
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Leaf40/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
-shape = SubResource("BoxShape3D_w6oqa")
-
 [node name="Leaf41" parent="World" instance=ExtResource("7_jia61")]
-transform = Transform3D(1.88713, 0, -0.662379, 0, 2, 0, 0.662379, 0, 1.88713, 19.8633, 28.2033, 8.41043)
+transform = Transform3D(1.25663, 0, -1.55592, 0, 2, 0, 1.55592, 0, 1.25663, 25.2384, 27.8922, 6.62802)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf41"]
 collision_layer = 4
@@ -468,14 +500,36 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
 shape = SubResource("BoxShape3D_w6oqa")
 
-[node name="Leaf42" parent="World" instance=ExtResource("7_jia61")]
-transform = Transform3D(1.88713, 0, -0.662379, 0, 2, 0, 0.662379, 0, 1.88713, 17.513, 28.8661, 8.41043)
+[node name="Leaf48" parent="World" instance=ExtResource("7_jia61")]
+transform = Transform3D(1.9972, 0, 0.105822, 0, 2, 0, -0.105822, 0, 1.9972, 28.9282, 29.5604, 3.16707)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf42"]
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf48"]
 collision_layer = 4
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Leaf42/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Leaf48/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
+shape = SubResource("BoxShape3D_w6oqa")
+
+[node name="Leaf49" parent="World" instance=ExtResource("7_jia61")]
+transform = Transform3D(1.9972, 0, 0.105822, 0, 2, 0, -0.105822, 0, 1.9972, 29.2692, 30.2914, 0.712491)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf49"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Leaf49/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
+shape = SubResource("BoxShape3D_w6oqa")
+
+[node name="Leaf50" parent="World" instance=ExtResource("7_jia61")]
+transform = Transform3D(1.9972, 0, 0.105822, 0, 2, 0, -0.105822, 0, 1.9972, 29.0354, 30.9582, -1.68703)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf50"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Leaf50/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
 shape = SubResource("BoxShape3D_w6oqa")
 
@@ -719,6 +773,28 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
 shape = SubResource("BoxShape3D_w6oqa")
 
+[node name="Leaf40" parent="World" instance=ExtResource("7_jia61")]
+transform = Transform3D(-0.602677, 0, -1.90703, 0, 2, 0, 1.90703, 0, -0.602677, 12.7694, 33.8379, 5.13007)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf40"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Leaf40/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
+shape = SubResource("BoxShape3D_w6oqa")
+
+[node name="Leaf47" parent="World" instance=ExtResource("7_jia61")]
+transform = Transform3D(1.43319, 0, -1.39498, 0, 2, 0, 1.39498, 0, 1.43319, 14.3943, 34.1909, 6.76951)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Leaf47"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Leaf47/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
+shape = SubResource("BoxShape3D_w6oqa")
+
 [node name="Leaf44" parent="World" instance=ExtResource("7_jia61")]
 transform = Transform3D(-0.843306, 0, -1.81351, 0, 2, 0, 1.81351, 0, -0.843306, 10.806, 31.8103, -1.18447)
 
@@ -865,12 +941,6 @@ transform = Transform3D(0.538771, 0, 0.842452, 0, 1, 0, -0.842452, 0, 0.538771, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00842667, 0.284119, 0.00396729)
 shape = SubResource("BoxShape3D_bjlbs")
 
-[node name="platform-falling2" parent="World" instance=ExtResource("16_k1x88")]
-transform = Transform3D(0.997669, 0, -0.0682417, 0, 1, 0, 0.0682417, 0, 0.997669, 33.8758, 19.593, -0.657091)
-
-[node name="platform-falling3" parent="World" instance=ExtResource("16_k1x88")]
-transform = Transform3D(0.742818, 0, 0.669494, 0, 1, 0, -0.669494, 0, 0.742818, 31.1146, 18.235, -6.73416)
-
 [node name="platform5" parent="World" instance=ExtResource("10_g5hdm")]
 transform = Transform3D(-0.911719, 0, -0.410814, 0, 1, 0, 0.410814, 0, -0.911719, 5.21429, 28.1522, 7.4459)
 
@@ -898,8 +968,131 @@ transform = Transform3D(-0.390362, 0, -0.920662, 0, 1, 0, 0.920662, 0, -0.390362
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00842667, 0.284119, 0.00396729)
 shape = SubResource("BoxShape3D_bjlbs")
 
-[node name="platform-falling4" parent="World" instance=ExtResource("16_k1x88")]
-transform = Transform3D(-0.838366, 0, -0.545107, 0, 1, 0, 0.545107, 0, -0.838366, 6.32288, 27.7904, 9.39879)
+[node name="platform8" parent="World" instance=ExtResource("10_g5hdm")]
+transform = Transform3D(-0.0376729, 0, -0.99929, 0, 1, 0, 0.99929, 0, -0.0376729, 20.8951, 35.2938, 17.2205)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/platform8"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/platform8/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00842667, 0.284119, 0.00396729)
+shape = SubResource("BoxShape3D_bjlbs")
+
+[node name="platform10" parent="World" instance=ExtResource("10_g5hdm")]
+transform = Transform3D(-0.0376729, 0, -0.99929, 0, 1, 0, 0.99929, 0, -0.0376729, 23.2051, 34.7435, 17.7259)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/platform10"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/platform10/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00842667, 0.284119, 0.00396729)
+shape = SubResource("BoxShape3D_bjlbs")
+
+[node name="platform15" parent="World" instance=ExtResource("10_g5hdm")]
+transform = Transform3D(0.824798, 0, -0.565428, 0, 1, 0, 0.565428, 0, 0.824798, 32.5404, 32.8891, 12.7829)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/platform15"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/platform15/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00842667, 0.284119, 0.00396729)
+shape = SubResource("BoxShape3D_bjlbs")
+
+[node name="platform16" parent="World" instance=ExtResource("10_g5hdm")]
+transform = Transform3D(0.880783, 0, -0.47352, 0, 1, 0, 0.47352, 0, 0.880783, 34.0982, 32.4101, 10.4913)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/platform16"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/platform16/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00842667, 0.284119, 0.00396729)
+shape = SubResource("BoxShape3D_bjlbs")
+
+[node name="platform17" parent="World" instance=ExtResource("10_g5hdm")]
+transform = Transform3D(-0.333544, 0, -0.942735, 0, 1, 0, 0.942735, 0, -0.333544, 35.3355, 32.1786, 7.79772)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/platform17"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/platform17/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00842667, 0.284119, 0.00396729)
+shape = SubResource("BoxShape3D_bjlbs")
+
+[node name="platform18" parent="World" instance=ExtResource("10_g5hdm")]
+transform = Transform3D(-0.0376729, 0, -0.99929, 0, 1, 0, 0.99929, 0, -0.0376729, 35.8375, 31.7406, 5.0594)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/platform18"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/platform18/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00842667, 0.284119, 0.00396729)
+shape = SubResource("BoxShape3D_bjlbs")
+
+[node name="platform19" parent="World" instance=ExtResource("10_g5hdm")]
+transform = Transform3D(0.275419, 0, -0.961324, 0, 1, 0, 0.961324, 0, 0.275419, 34.5706, 31.2555, -0.210146)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/platform19"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/platform19/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00842667, 0.284119, 0.00396729)
+shape = SubResource("BoxShape3D_bjlbs")
+
+[node name="platform20" parent="World" instance=ExtResource("10_g5hdm")]
+transform = Transform3D(0.356461, 0, -0.934311, 0, 1, 0, 0.934311, 0, 0.356461, 33.5694, 31.6394, -2.44393)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/platform20"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/platform20/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00842667, 0.284119, 0.00396729)
+shape = SubResource("BoxShape3D_bjlbs")
+
+[node name="platform21" parent="World" instance=ExtResource("10_g5hdm")]
+transform = Transform3D(0.356461, 0, -0.934311, 0, 1, 0, 0.934311, 0, 0.356461, 32.7924, 32.2271, -4.41391)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/platform21"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/platform21/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00842667, 0.284119, 0.00396729)
+shape = SubResource("BoxShape3D_bjlbs")
+
+[node name="platform9" parent="World" instance=ExtResource("10_g5hdm")]
+transform = Transform3D(0.210267, 0, -0.977644, 0, 1, 0, 0.977644, 0, 0.210267, 21.2486, 35.7884, 13.6882)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/platform9"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/platform9/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00842667, 0.284119, 0.00396729)
+shape = SubResource("BoxShape3D_bjlbs")
+
+[node name="platform11" parent="World" instance=ExtResource("10_g5hdm")]
+transform = Transform3D(0.7501, 0, -0.661325, 0, 1, 0, 0.661325, 0, 0.7501, 28.8175, 36.5455, 10.5817)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/platform11"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/platform11/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00842667, 0.284119, 0.00396729)
+shape = SubResource("BoxShape3D_bjlbs")
+
+[node name="platform12" parent="World" instance=ExtResource("10_g5hdm")]
+transform = Transform3D(0.879034, 0, -0.47676, 0, 1, 0, 0.47676, 0, 0.879034, 30.4143, 37.0119, 8.61074)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/platform12"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/platform12/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00842667, 0.284119, 0.00396729)
+shape = SubResource("BoxShape3D_bjlbs")
+
+[node name="platform13" parent="World" instance=ExtResource("10_g5hdm")]
+transform = Transform3D(0.939208, 0, -0.343348, 0, 1, 0, 0.343348, 0, 0.939208, 31.6156, 37.3622, 6.452)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/platform13"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/platform13/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00842667, 0.284119, 0.00396729)
+shape = SubResource("BoxShape3D_bjlbs")
+
+[node name="platform14" parent="World" instance=ExtResource("10_g5hdm")]
+transform = Transform3D(0.998876, 0, 0.0474027, 0, 1, 0, -0.0474027, 0, 0.998876, 32.4214, 38.6044, 1.82794)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/platform14"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/platform14/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00842667, 0.284119, 0.00396729)
+shape = SubResource("BoxShape3D_bjlbs")
 
 [node name="Animal" parent="World" instance=ExtResource("8_vn8xo")]
 transform = Transform3D(1.5582, 0, 2.56359, 0, 3, 0, -2.56359, 0, 1.5582, 27.5114, 14.4544, 4.59846)
@@ -935,6 +1128,31 @@ transform = Transform3D(0.87002, 0, 0.493016, 0, 1, 0, -0.493016, 0, 0.87002, 27
 collision_layer = 2
 collision_mask = 15
 
+[node name="coin6" parent="World" instance=ExtResource("6_5wi1t")]
+transform = Transform3D(0.87002, 0, 0.493016, 0, 1, 0, -0.493016, 0, 0.87002, 26.7382, 37.052, 11.984)
+collision_layer = 2
+collision_mask = 15
+
+[node name="coin10" parent="World" instance=ExtResource("6_5wi1t")]
+transform = Transform3D(0.87002, 0, 0.493016, 0, 1, 0, -0.493016, 0, 0.87002, 35.6761, 32.0522, 2.23909)
+collision_layer = 2
+collision_mask = 15
+
+[node name="coin8" parent="World" instance=ExtResource("6_5wi1t")]
+transform = Transform3D(0.87002, 0, 0.493016, 0, 1, 0, -0.493016, 0, 0.87002, 28.2612, 34.8383, 16.3017)
+collision_layer = 2
+collision_mask = 15
+
+[node name="coin9" parent="World" instance=ExtResource("6_5wi1t")]
+transform = Transform3D(0.87002, 0, 0.493016, 0, 1, 0, -0.493016, 0, 0.87002, 30.8093, 34.1606, 14.6831)
+collision_layer = 2
+collision_mask = 15
+
+[node name="coin7" parent="World" instance=ExtResource("6_5wi1t")]
+transform = Transform3D(0.87002, 0, 0.493016, 0, 1, 0, -0.493016, 0, 0.87002, 32.8512, 40.5814, -0.062598)
+collision_layer = 2
+collision_mask = 15
+
 [node name="coin3" parent="World" instance=ExtResource("6_5wi1t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.76131, 18.4041, -5.49928)
 collision_layer = 2
@@ -962,14 +1180,53 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7989, 2.71517, -4.91552)
 [node name="checkpoint" parent="World" instance=ExtResource("15_ibvl5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.4573, 21.1374, 4.61407)
 
+[node name="checkpoint4" parent="World" instance=ExtResource("15_ibvl5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.5177, 40.0147, -1.04805)
+
+[node name="checkpoint5" parent="World" instance=ExtResource("15_ibvl5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.5833, 33.0461, -7.03421)
+
 [node name="checkpoint3" parent="World" instance=ExtResource("15_ibvl5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2637, 25.992, 10.7834)
+
+[node name="checkpoint6" parent="World" instance=ExtResource("15_ibvl5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4445, 35.6553, 15.0268)
 
 [node name="checkpoint2" parent="World" instance=ExtResource("15_ibvl5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8099, 15.1342, -8.0381)
 
 [node name="platform-falling" parent="World" instance=ExtResource("16_k1x88")]
 transform = Transform3D(0.989985, 0, -0.141178, 0, 1, 0, 0.141178, 0, 0.989985, 12.3566, 26.6147, 12.2056)
+
+[node name="platform-falling4" parent="World" instance=ExtResource("16_k1x88")]
+transform = Transform3D(0.999981, 0, -0.00633574, 0, 1, 0, 0.00633574, 0, 0.999981, 34.0036, 19.5189, -0.542117)
+
+[node name="platform-falling6" parent="World" instance=ExtResource("16_k1x88")]
+transform = Transform3D(0.715791, 0, 0.698316, 0, 1, 0, -0.698316, 0, 0.715791, 31.1362, 18.2276, -6.69827)
+
+[node name="platform-falling5" parent="World" instance=ExtResource("16_k1x88")]
+transform = Transform3D(0.545005, 0, -0.838434, 0, 1, 0, 0.838434, 0, 0.545005, 6.23925, 27.8855, 9.45088)
+
+[node name="platform-falling7" parent="World" instance=ExtResource("16_k1x88")]
+transform = Transform3D(0.970767, 0, 0.240025, 0, 1, 0, -0.240025, 0, 0.970767, 23.9514, 35.9988, 13.0257)
+
+[node name="platform-falling8" parent="World" instance=ExtResource("16_k1x88")]
+transform = Transform3D(0.906434, 0, 0.422349, 0, 1, 0, -0.422349, 0, 0.906434, 26.52, 36.3043, 11.9851)
+
+[node name="platform-falling11" parent="World" instance=ExtResource("16_k1x88")]
+transform = Transform3D(0.147257, 0, 0.989099, 0, 1, 0, -0.989099, 0, 0.147257, 32.3801, 37.8868, 4.00329)
+
+[node name="platform-falling9" parent="World" instance=ExtResource("16_k1x88")]
+transform = Transform3D(0.965505, 0, 0.260387, 0, 1, 0, -0.260387, 0, 0.965505, 25.8505, 34.517, 17.2162)
+
+[node name="platform-falling10" parent="World" instance=ExtResource("16_k1x88")]
+transform = Transform3D(0.886414, 0, 0.462894, 0, 1, 0, -0.462894, 0, 0.886414, 28.3375, 34.0933, 16.0413)
+
+[node name="platform-falling12" parent="World" instance=ExtResource("16_k1x88")]
+transform = Transform3D(0.851892, 0, 0.523718, 0, 1, 0, -0.523718, 0, 0.851892, 30.7803, 33.495, 14.5796)
+
+[node name="platform-falling14" parent="World" instance=ExtResource("16_k1x88")]
+transform = Transform3D(0.979266, 0, 0.202582, 0, 1, 0, -0.202582, 0, 0.979266, 35.5175, 31.4147, 2.28417)
 
 [node name="cube14" parent="World" instance=ExtResource("17_x2a5o")]
 transform = Transform3D(1.56209, -1.37982, 1.71508, 1.97375, 1.80907, -0.342241, -0.974547, 1.4522, 2.05595, -15.866, 2.03819, 7.83702)
@@ -985,6 +1242,12 @@ transform = Transform3D(0.91373, 0, -0.406322, 0, 1, 0, 0.406322, 0, 0.91373, 10
 
 [node name="trap-spikes5" parent="World" instance=ExtResource("22_yds31")]
 transform = Transform3D(0.91373, 0, -0.406322, 0, 1, 0, 0.406322, 0, 0.91373, 9.99353, 32.191, -3.765)
+
+[node name="trap-spikes6" parent="World" instance=ExtResource("22_yds31")]
+transform = Transform3D(-0.06016, 0, -0.998189, 0, 1, 0, 0.998189, 0, -0.06016, 18.9023, 35.8032, 11.9045)
+
+[node name="trap-spikes7" parent="World" instance=ExtResource("22_yds31")]
+transform = Transform3D(-0.06016, 0, -0.998189, 0, 1, 0, 0.998189, 0, -0.06016, 18.0989, 35.8032, 11.8838)
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.422618, -0.694272, 0.582563, 0, 0.642788, 0.766044, -0.906308, 0.323744, -0.271654, 0, 0, 0)
@@ -1117,10 +1380,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.73886, 10.8521, 0.0828703)
 [editable path="World/Branch5"]
 [editable path="World/Branch13"]
 [editable path="World/Branch16"]
+[editable path="World/Branch18"]
+[editable path="World/Branch22"]
+[editable path="World/Branch19"]
 [editable path="World/Branch17"]
 [editable path="World/Branch7"]
 [editable path="World/Animal2"]
 [editable path="World/Branch8"]
+[editable path="World/Branch9"]
 [editable path="World/Leaf"]
 [editable path="World/Leaf2"]
 [editable path="World/Leaf16"]
@@ -1129,13 +1396,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.73886, 10.8521, 0.0828703)
 [editable path="World/Leaf33"]
 [editable path="World/Leaf34"]
 [editable path="World/Leaf35"]
-[editable path="World/Leaf36"]
 [editable path="World/Leaf37"]
 [editable path="World/Leaf38"]
 [editable path="World/Leaf39"]
-[editable path="World/Leaf40"]
 [editable path="World/Leaf41"]
-[editable path="World/Leaf42"]
+[editable path="World/Leaf48"]
+[editable path="World/Leaf49"]
+[editable path="World/Leaf50"]
 [editable path="World/Leaf4"]
 [editable path="World/Leaf5"]
 [editable path="World/Leaf6"]
@@ -1157,6 +1424,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.73886, 10.8521, 0.0828703)
 [editable path="World/Leaf30"]
 [editable path="World/Leaf31"]
 [editable path="World/Leaf43"]
+[editable path="World/Leaf40"]
+[editable path="World/Leaf47"]
 [editable path="World/Leaf44"]
 [editable path="World/Leaf45"]
 [editable path="World/Leaf46"]
@@ -1174,4 +1443,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.73886, 10.8521, 0.0828703)
 [editable path="World/platform5"]
 [editable path="World/platform6"]
 [editable path="World/platform7"]
+[editable path="World/platform8"]
+[editable path="World/platform10"]
+[editable path="World/platform15"]
+[editable path="World/platform16"]
+[editable path="World/platform17"]
+[editable path="World/platform18"]
+[editable path="World/platform19"]
+[editable path="World/platform20"]
+[editable path="World/platform21"]
+[editable path="World/platform9"]
+[editable path="World/platform11"]
+[editable path="World/platform12"]
+[editable path="World/platform13"]
+[editable path="World/platform14"]
 [editable path="World/coin"]
