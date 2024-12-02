@@ -12,6 +12,7 @@ func _process(_delta: float) -> void:
 
 
 func _on_body_entered(body: Node) -> void:
+	print(self)
 	var dir_vector = body.global_position - global_position
 	body.velocity = dir_vector.normalized()*50
 	if not only_push:

@@ -37,8 +37,12 @@ func _ready() -> void:
 
 func _physics_process(delta):
 	isHavingJumpPad = groundCast.is_colliding() and groundCast.get_collider().has_method("interact")
+	if groundCast.is_colliding():
+		print(groundCast.get_collider())
 	if isHavingJumpPad:
 		groundCast.get_collider().interact(coins, false)
+
+
 	# Handle functions
 
 	handle_controls(delta)
@@ -47,9 +51,7 @@ func _physics_process(delta):
 	handle_effects(delta)
 	
 	# Movement
-	isHavingJumpPad = groundCast.is_colliding() and groundCast.get_collider().has_method("interact")
-	if isHavingJumpPad:
-		groundCast.get_collider().interact(coins, false)
+	
 			
 	var applied_velocity: Vector3
 

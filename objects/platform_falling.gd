@@ -42,8 +42,9 @@ func restore_platform() -> void:
 	respawn_sequence_started = false
 
 func _on_body_entered(_body):
-	if !falling:
-		Audio.play("res://sounds/fall.ogg") # Play sound
-		scale = Vector3(1.25, 1, 1.25) # Animate scale
-		
-	falling = true
+	if(_body.has_method("handle_controls")):
+		if !falling:
+			Audio.play("res://sounds/fall.ogg") # Play sound
+			scale = Vector3(1.25, 1, 1.25) # Animate scale
+			
+		falling = true
