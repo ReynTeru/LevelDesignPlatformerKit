@@ -208,7 +208,7 @@ environment = ExtResource("1_65iw2")
 camera_attributes = SubResource("CameraAttributesPractical_u8ojw")
 
 [node name="Player" parent="." node_paths=PackedStringArray("view") instance=ExtResource("2_0qa3j")]
-transform = Transform3D(-0.560483, 0.00723048, 0.828135, -0.000678916, 0.999958, -0.00919017, -0.828166, -0.00571316, -0.560454, 20.1645, 46.8668, 9.97866)
+transform = Transform3D(-0.560483, 0.00723048, 0.828135, -0.000678916, 0.999958, -0.00919017, -0.828166, -0.00571316, -0.560454, 6.49364, 11.5214, 0.515955)
 collision_layer = 2
 collision_mask = 36623
 view = NodePath("../View")
@@ -1742,7 +1742,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263, -0.0581055)
 shape = SubResource("BoxShape3D_w6oqa")
 
 [node name="Animal" parent="World" instance=ExtResource("8_vn8xo")]
-transform = Transform3D(1.75913, 0, 4.68033, 0, 5, 0, -4.68033, 0, 1.75913, 31.1998, 22.4962, -5.36367)
+transform = Transform3D(1.75913, 0, 4.68033, 0, 5, 0, -4.68033, 0, 1.75913, 31.1998, 21.8195, -5.36367)
 
 [node name="crate-item" parent="World/Animal" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_aqgma")
@@ -1763,7 +1763,7 @@ transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0.012671
 shape = SubResource("BoxShape3D_edua6")
 
 [node name="Animal3" parent="World" instance=ExtResource("8_vn8xo")]
-transform = Transform3D(-0.253946, 0, 3.99193, 0, 4, 0, -3.99193, 0, -0.253946, 29.0541, 33.586, -1.70644)
+transform = Transform3D(-0.253946, 0, 3.99193, 0, 4, 0, -3.99193, 0, -0.253946, 29.0541, 32.6425, -1.70644)
 
 [node name="crate-item" parent="World/Animal3" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_aqgma")
@@ -1786,7 +1786,7 @@ shape = SubResource("BoxShape3D_edua6")
 transform = Transform3D(0.132123, 0, 0.150145, 0, 0.2, 0, -0.150145, 0, 0.132123, 0.0110767, 0.764916, 0.0214725)
 
 [node name="Animal8" parent="World" instance=ExtResource("8_vn8xo")]
-transform = Transform3D(-3.9371, 0, 0.706555, 0, 4, 0, -0.706555, 0, -3.9371, 18.8738, 31.4201, -13.232)
+transform = Transform3D(-3.9371, 0, 0.706555, 0, 4, 0, -0.706555, 0, -3.9371, 18.8738, 31.1973, -13.232)
 
 [node name="crate-item" parent="World/Animal8" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_aqgma")
@@ -1810,7 +1810,7 @@ shape = SubResource("BoxShape3D_edua6")
 transform = Transform3D(0.132123, 0, 0.150145, 0, 0.2, 0, -0.150145, 0, 0.132123, 0.0110767, 0.764916, 0.0214725)
 
 [node name="Animal4" parent="World" instance=ExtResource("8_vn8xo")]
-transform = Transform3D(2.86467, 0, 0.890873, 0, 3, 0, -0.890873, 0, 2.86467, 28.8564, 40.0139, -13.8262)
+transform = Transform3D(2.86467, 0, 0.890873, 0, 3, 0, -0.890873, 0, 2.86467, 28.8564, 39.8206, -13.8262)
 
 [node name="crate-item" parent="World/Animal4" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_aqgma")
@@ -1834,7 +1834,7 @@ shape = SubResource("BoxShape3D_edua6")
 transform = Transform3D(-0.262287, 0, 0.205711, 0, 0.333333, 0, -0.205711, 0, -0.262287, 0.0240164, 0.761142, 0.0103333)
 
 [node name="Animal6" parent="World" instance=ExtResource("8_vn8xo")]
-transform = Transform3D(2.52204, 0, -1.62459, 0, 3, 0, 1.62459, 0, 2.52204, 29.4984, 41.3805, 6.75165)
+transform = Transform3D(2.52204, 0, -1.62459, 0, 3, 0, 1.62459, 0, 2.52204, 29.4984, 40.7934, 6.75165)
 
 [node name="crate-item" parent="World/Animal6" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_aqgma")
@@ -1858,7 +1858,7 @@ shape = SubResource("BoxShape3D_edua6")
 transform = Transform3D(-0.225775, 0, 0.245228, 0, 0.333333, 0, -0.245228, 0, -0.225775, 0.0516491, 0.768434, 0.00769138)
 
 [node name="Animal7" parent="World" instance=ExtResource("8_vn8xo")]
-transform = Transform3D(1.06918, 0, -2.80301, 0, 3, 0, 2.80301, 0, 1.06918, 28.1584, 38.2848, 10.7251)
+transform = Transform3D(1.06918, 0, -2.80301, 0, 3, 0, 2.80301, 0, 1.06918, 28.1584, 36.9294, 10.7251)
 
 [node name="crate-item" parent="World/Animal7" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_aqgma")
@@ -1882,7 +1882,7 @@ shape = SubResource("BoxShape3D_edua6")
 transform = Transform3D(-0.225775, 0, 0.245228, 0, 0.333333, 0, -0.245228, 0, -0.225775, 0.0516491, 0.768434, 0.00769138)
 
 [node name="Animal9" parent="World" instance=ExtResource("8_vn8xo")]
-transform = Transform3D(-2.70516, 0, -1.29697, 0, 3, 0, 1.29697, 0, -2.70516, 12.5435, 44.9147, 4.74421)
+transform = Transform3D(-2.70516, 0, -1.29697, 0, 3, 0, 1.29697, 0, -2.70516, 12.5435, 44.5914, 4.74421)
 
 [node name="crate-item" parent="World/Animal9" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_aqgma")
@@ -1930,7 +1930,7 @@ shape = SubResource("BoxShape3D_edua6")
 transform = Transform3D(-0.327348, 0, -0.0628835, 0, 0.333334, 0, 0.0628835, 0, -0.327348, 0.046129, 0.766476, 0.0113702)
 
 [node name="Animal10" parent="World" instance=ExtResource("8_vn8xo")]
-transform = Transform3D(-0.215749, 0, 2.99223, 0, 3, 0, -2.99223, 0, -0.215749, 21.6352, 46.5949, 8.77652)
+transform = Transform3D(-0.215749, 0, 2.99223, 0, 3, 0, -2.99223, 0, -0.215749, 21.6352, 46.211, 8.77652)
 
 [node name="crate-item" parent="World/Animal10" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_aqgma")
@@ -2000,7 +2000,7 @@ shape = SubResource("BoxShape3D_edua6")
 transform = Transform3D(0.333263, 0, 0.0068351, 0, 0.333333, 0, -0.0068351, 0, 0.333263, 0.0472574, 0.777054, 0.0164595)
 
 [node name="Animal12" parent="World" instance=ExtResource("8_vn8xo")]
-transform = Transform3D(-2.91734, 0, 0.699366, 0, 3, 0, -0.699366, 0, -2.91734, 32.4324, 46.9719, 0.924787)
+transform = Transform3D(-2.91734, 0, 0.699366, 0, 3, 0, -0.699366, 0, -2.91734, 32.4324, 46.5195, 0.924787)
 
 [node name="crate-item" parent="World/Animal12" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_aqgma")
@@ -2185,7 +2185,7 @@ shape = SubResource("BoxShape3D_edua6")
 transform = Transform3D(-0.262287, 0, 0.205711, 0, 0.333333, 0, -0.205711, 0, -0.262287, 0.0240164, 0.761142, 0.0103333)
 
 [node name="Animal2" parent="World" instance=ExtResource("8_vn8xo")]
-transform = Transform3D(2.78518, 0, 4.15244, 0, 5, 0, -4.15244, 0, 2.78518, 11.1294, 14.8834, -2.14977)
+transform = Transform3D(2.78518, 0, 4.15244, 0, 5, 0, -4.15244, 0, 2.78518, 11.1294, 14.0341, -2.14977)
 
 [node name="crate-item" parent="World/Animal2" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_aqgma")
@@ -3552,7 +3552,7 @@ shape = SubResource("BoxShape3D_8wf5v")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.3367, 58.9246, -0.701654)
 
 [node name="number-22" parent="World" instance=ExtResource("21_1ovec")]
-transform = Transform3D(0.98085, 0, -0.194765, 0, 1, 0, 0.194765, 0, 0.98085, 10.9224, 19.3612, -2.18919)
+transform = Transform3D(0.98085, 0, -0.194765, 0, 1, 0, 0.194765, 0, 0.98085, 10.9224, 18.4095, -2.18919)
 
 [node name="number-12" parent="World" instance=ExtResource("22_pdnou")]
 transform = Transform3D(-0.923096, 0, -0.384569, 0, 1, 0, 0.384569, 0, -0.923096, 31.0643, 26.4427, -5.42619)

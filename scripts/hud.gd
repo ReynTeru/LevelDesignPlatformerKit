@@ -40,7 +40,7 @@ func start_speedrun():
 
 func _on_coin_collected(coins):
 	get_tree().call_group("Door", "coin_amount_updated",coins)
-	coins_label.text = str(coins)
+	#coins_label.text = str(coins)
 
 func _on_player_reached_goal() -> void:
 	original_blur = environment.camera_attributes.get("dof_blur_far_enabled")
