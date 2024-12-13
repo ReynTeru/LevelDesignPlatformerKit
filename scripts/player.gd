@@ -34,7 +34,7 @@ var isHavingJumpPad = false
 
 func _ready() -> void:
 	latest_checkpoint = global_position
-
+	
 func _physics_process(delta):
 	isHavingJumpPad = groundCast.is_colliding() and groundCast.get_collider().has_method("interact")
 	if groundCast.is_colliding():

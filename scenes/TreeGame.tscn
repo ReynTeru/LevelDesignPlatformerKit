@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=4 uid="uid://b10s8r6moyncd"]
+[gd_scene load_steps=67 format=4 uid="uid://b10s8r6moyncd"]
 
 [ext_resource type="Environment" uid="uid://bqnqgflivjvue" path="res://scenes/main-environment.tres" id="1_65iw2"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="2_0qa3j"]
@@ -154,9 +154,21 @@ albedo_color = Color(0.5313, 0.77, 0.77, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_u72oq"]
 size = Vector3(2.02231, 0.445068, 1.99451)
 
-[sub_resource type="LabelSettings" id="LabelSettings_tj530"]
+[sub_resource type="LabelSettings" id="LabelSettings_ti0yd"]
 font = ExtResource("21_d05ld")
 font_size = 128
+shadow_color = Color(0, 0, 0, 0.376471)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4dul0"]
+font = ExtResource("21_d05ld")
+font_size = 32
+shadow_color = Color(0, 0, 0, 0.376471)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_n6wm0"]
+font = ExtResource("21_d05ld")
+font_size = 42
 shadow_color = Color(0, 0, 0, 0.376471)
 shadow_offset = Vector2(2, 2)
 
@@ -7869,7 +7881,7 @@ offset_right = 429.0
 offset_bottom = 287.0
 grow_horizontal = 2
 text = "Level Complete!"
-label_settings = SubResource("LabelSettings_tj530")
+label_settings = SubResource("LabelSettings_ti0yd")
 
 [node name="CoinsLabel" type="Label" parent="HUD/Control"]
 unique_name_in_owner = true
@@ -7906,6 +7918,42 @@ icon = ExtResource("23_34oy3")
 flat = true
 icon_alignment = 1
 
+[node name="TimeLabel" type="Label" parent="HUD/Control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -48.5
+offset_top = 59.0
+offset_right = 48.5
+offset_bottom = 115.0
+grow_horizontal = 2
+text = "00"
+label_settings = SubResource("LabelSettings_4dul0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeNameLabel" type="Label" parent="HUD/Control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -49.0
+offset_top = 22.0
+offset_right = 49.0
+offset_bottom = 78.0
+grow_horizontal = 2
+text = "TIME"
+label_settings = SubResource("LabelSettings_n6wm0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="coin_collected" from="Player" to="HUD" method="_on_coin_collected"]
+[connection signal="reached_goal" from="Player" to="HUD" method="_on_player_reached_goal"]
 [connection signal="pressed" from="HUD/Control/PlayAgainButton" to="HUD" method="_on_play_again_button_pressed"]
 
 [editable path="Player"]
